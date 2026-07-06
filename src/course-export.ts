@@ -5,6 +5,7 @@ export const COURSE_EXPORT_COLUMNS = [
   "课程代码",
   "课程类别",
   "授课语言",
+  "授课教师",
   "计分方式",
   "学分",
   "上课信息",
@@ -25,6 +26,7 @@ export function formatCourseForExport(course: CourseSelectionRecord): CourseExpo
     课程代码: valueOf(course.kcdm),
     课程类别: valueOf(course.kclbmc),
     授课语言: valueOf(course.skyymc),
+    授课教师: valueOf(course.dgjsmc),
     计分方式: valueOf(course.jfzlbmc),
     学分: valueOf(course.xf),
     上课信息: formatClassInfo(course),
@@ -68,6 +70,8 @@ function formatCapacity(course: CourseSelectionRecord): string {
 
 function htmlToText(html: string): string {
   return html
+    .replace(/<script>\s*-split-\s*<\/script>\s*<p[^>]*>\s*主任务[:：]\s*<\/p>/gi, "; 主任务: ")
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "")
     .replace(/<\/p>\s*<p[^>]*>/gi, "; ")
     .replace(/<br\s*\/?>/gi, "; ")
     .replace(/<\/?(div|span|p|b|a)[^>]*>/gi, "")
@@ -107,4 +111,3 @@ function valueOf(value: unknown): string {
   }
   return String(value).trim();
 }
-
