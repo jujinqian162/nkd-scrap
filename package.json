@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "test": "bun test tests/**/*.test.ts",
-    "smoke:login": "bun run src/smoke-login.ts"
+    "smoke:login": "bun run src/smoke-login.ts",
+    "smoke:course-selection": "bun run src/smoke-course-selection.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"
