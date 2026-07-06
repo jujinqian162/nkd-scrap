@@ -1,0 +1,12 @@
+{
+  "name": "nkd-scrap",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "bun test tests/**/*.test.ts",
+    "smoke:login": "bun run src/smoke-login.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
